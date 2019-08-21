@@ -3,21 +3,21 @@ package com.asdc.boot.valuation.tool.controller;
 import com.asdc.boot.valuation.tool.service.FileDownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import java.lang.*;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.Properties;
+
 
 /**
  * 文件下载
@@ -95,7 +95,7 @@ public class FileDownloadController {
 
 
     /**
-     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="https://github.com/Chujiang0413/tools.html"&suffix=pdf
+     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="http://blog.sina.com.cn/s/blog_61c9c41e0100q1li.html"&suffix="html"
      * 获取的下载链接 http://sk.sit.fosuntech.cn/group1/M00/00/72/CqYKHVn69wyAMl6YAAVf953sp4Y075.pdf
      * @param path
      * @param data_name
@@ -136,9 +136,9 @@ public class FileDownloadController {
             try {
                 String finalFileName = null;
                 final String userAgent = request.getHeader("USER-AGENT");
-                if (userAgent.equalsIgnoreCase("MSIE")) {//IE浏览器
+                if (userAgent.contains("MSIE")) {//IE浏览器
                     finalFileName = URLEncoder.encode(filename, "UTF-8");
-                } else if (userAgent.equalsIgnoreCase("Mozilla")) {//google,火狐浏览器
+                } else if (userAgent.contains("Mozilla")) {//google,火狐浏览器
                     finalFileName = new String(filename.getBytes(), "ISO8859-1");
                 } else {
                     finalFileName = URLEncoder.encode(filename, "UTF-8");//其他浏览器
@@ -162,7 +162,6 @@ public class FileDownloadController {
             while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
                 bos.write(buff, 0, bytesRead);
             }
-            //todo xian xia zai bendi
             response.flushBuffer();//将所有的读取的流返回给客户端
         } catch (
                 IOException e) {
