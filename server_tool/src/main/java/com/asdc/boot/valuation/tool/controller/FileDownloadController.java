@@ -95,7 +95,7 @@ public class FileDownloadController {
 
 
     /**
-     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="https://file.chinaratings.com.cn/finchina/2019-7/2019-07-19/11534349.pdf"&suffix=pdf
+     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="https://github.com/Chujiang0413/tools.html"&suffix=pdf
      * 获取的下载链接 http://sk.sit.fosuntech.cn/group1/M00/00/72/CqYKHVn69wyAMl6YAAVf953sp4Y075.pdf
      * @param path
      * @param data_name
@@ -127,10 +127,11 @@ public class FileDownloadController {
             Long fileLength = conn.getContentLengthLong();//获取文件大小
             String oldContentType = conn.getContentType();
 
+            String oldSuffix = suffix.substring(1, suffix.length()-1);
             String oldname = data_name.substring(1, data_name.length()-1);
 
             StringBuffer s = new StringBuffer();
-            String filename = s.append(oldname).append(".").append(suffix).toString();
+            String filename = s.append(oldname).append(".").append(oldSuffix).toString();
 
             try {
                 String finalFileName = null;
