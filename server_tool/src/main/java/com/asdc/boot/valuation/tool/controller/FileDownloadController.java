@@ -121,17 +121,14 @@ public class FileDownloadController {
             response.reset();//清除response中的缓存
 
             //根据网络文件地址创建URL
-            URL url = new URL(path.substring(1, path.length() - 1));
+            URL url = new URL(path);
             //获取此路径的连接
             URLConnection conn = url.openConnection();//打开这儿链接
             Long fileLength = conn.getContentLengthLong();//获取文件大小
             String oldContentType = conn.getContentType();
 
-            String oldSuffix = suffix.substring(1, suffix.length()-1);
-            String oldname = data_name.substring(1, data_name.length()-1);
-
             StringBuffer s = new StringBuffer();
-            String filename = s.append(oldname).append(".").append(oldSuffix).toString();
+            String filename = s.append(data_name).append(".").append(suffix).toString();
 
             try {
                 String finalFileName = null;
