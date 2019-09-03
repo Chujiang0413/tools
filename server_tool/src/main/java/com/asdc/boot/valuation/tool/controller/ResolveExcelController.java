@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author chujiangjiang
@@ -26,8 +27,11 @@ public class ResolveExcelController {
 
     @RequestMapping("/importExcel")
     @ResponseBody
-    public Result importExcel(@RequestParam String path,HttpRequest request,HttpResponse response) {
-        return resolveExcelService.importExcel();
+    public Result importExcel(@RequestParam("file") MultipartFile file, HttpRequest request, HttpResponse response) {
+        if (null == file){
+            return Result.handleError("上传文件不能为空");
+        }
+        return resolveExcelService.importExcel(file);
     }
 
 }
