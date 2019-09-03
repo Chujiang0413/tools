@@ -21,8 +21,6 @@
     <dependencies>
 
         <dependency>
-<<<<<<< HEAD
-=======
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
@@ -62,7 +60,6 @@
         </dependency>
 
         <dependency>
->>>>>>> db811e25df5e2a3eee4cb28eff1771de81c6be5b
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
