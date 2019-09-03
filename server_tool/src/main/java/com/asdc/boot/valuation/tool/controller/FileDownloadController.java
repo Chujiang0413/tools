@@ -142,7 +142,8 @@ public class FileDownloadController {
                 }
                 //设置reponse响应头，真实文件名重命名
 
-                response.setHeader("Content-Disposition", "attachment; filename=\"" + finalFileName + "\"");
+                response.setHeader("Content-Disposition", "attachment; filename=\""
+                        + finalFileName + "\"");
             } catch (UnsupportedEncodingException e) {
                 throw new UnsupportedOperationException("Fail to set Encode!");
             }
