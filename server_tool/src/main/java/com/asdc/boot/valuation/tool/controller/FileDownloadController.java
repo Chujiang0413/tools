@@ -1,9 +1,5 @@
 package com.asdc.boot.valuation.tool.controller;
 
-import com.asdc.boot.valuation.tool.service.FileDownloadService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -95,7 +91,7 @@ public class FileDownloadController {
 
 
     /**
-     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="http://blog.sina.com.cn/s/blog_61c9c41e0100q1li.html"&suffix="html"
+     * http://localhost:8080/fileDownload/downloadAttachment?data_name="文案计划"&path="http://sk.sit.fosuntech.cn/group1/M00/00/72/CqYKHVn69wyAMl6YAAVf953sp4Y075.pdf"&suffix="pdf"
      * 获取的下载链接 http://sk.sit.fosuntech.cn/group1/M00/00/72/CqYKHVn69wyAMl6YAAVf953sp4Y075.pdf
      * @param path
      * @param data_name
