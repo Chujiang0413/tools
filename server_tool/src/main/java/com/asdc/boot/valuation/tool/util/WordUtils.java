@@ -154,7 +154,7 @@ public class WordUtils {
      * @Description: 创建Excel数据
      * @param wb:工作薄
      * @param sheet：wb.createSheet();
-     * @param sheetName：sheet名称
+     * @param ：sheet名称
      * @param dataList
      * @param fldNameArr
      * @param titleArr
@@ -292,7 +292,7 @@ public class WordUtils {
      * @Description:创建动态图
      * @param wb
      * @param sheet
-     * @param sheetName
+     * @param
      * @param curRow:当前行号
      * @param type:图类型
      * @param group:柱状图类型 @see STBarGrouping
